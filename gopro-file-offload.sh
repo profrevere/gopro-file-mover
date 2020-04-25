@@ -19,7 +19,7 @@ PICDESTDIR=/home/brett/$fileType/$activity/$currentDate/
 #If/then statements for routing files
 if [ $fileType = Videos ]
 then
-	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR > $DESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR > $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = Pictures ]
@@ -28,6 +28,7 @@ then
 fi
 
 #END
+
 
 
 
