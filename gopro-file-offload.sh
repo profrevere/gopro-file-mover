@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #Rsync Automation script for pulling new files off GoPro Hero 7 MicroSD card and into new folder by date.
 
 #User Input Prompts
