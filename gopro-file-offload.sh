@@ -23,7 +23,7 @@ then
 fi
 
 #Pre-defined variables
-SOURCEDIR=/media/brett/GoPro7/DCIM/*GOPRO/
+SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
 currentDate='date +”%d-%b-%Y”'
 VIDDESTDIR=~/$fileType/$activity/$currentDate/
 PICDESTDIR=~/$fileType/$activity/$currentDate/
