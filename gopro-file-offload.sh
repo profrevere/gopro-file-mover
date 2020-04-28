@@ -24,8 +24,8 @@ fi
 
 #Pre-defined variables
 SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
-VIDDESTDIR=~/$fileType/$activity/date +”%F”
-PICDESTDIR=~/$fileType/$activity/date +”%F”
+VIDDESTDIR=~/$fileType/$activity/'date +”%F”'
+PICDESTDIR=~/$fileType/$activity/'date +”%F”'
 
 
 #If/then statements for routing files
