@@ -2,12 +2,23 @@
 #Rsync Automation script for pulling new files off GoPro Hero 7 MicroSD card and into new folder by date.
 
 #User Input Prompts
-echo -e "What type of activities were recorded? (e.g. Yoga, Nightlapse"
+echo -e "What type of activities were recorded? (e.g. Yoga, Nightlapse)"
 read activity
 echo "Confirming the activity type is $activity."
 echo -e "What type of files are we transfering? (e.g. Videos or Pictures)"
 read fileType
 echo "Confirming that only $fileType's will be transfered."
+
+#Directory Creation
+if [ $fileType = Videos ]
+then
+	mkdir /home/brett/$fileType/$activity/$currentDate/
+fi
+
+if [ $fileType = Pictures ]
+then
+	mkdir /home/brett/$fileType/$activity/$currentDate/
+fi
 
 #Pre-defined variables
 SOURCEDIR=/media/brett/GoPro7/DCIM/*GOPRO/
