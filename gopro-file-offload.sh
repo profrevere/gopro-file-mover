@@ -12,13 +12,13 @@ echo "Confirming that only $fileType's will be transfered."
 #Directory Creation
 if [ $fileType = Videos ]
 then
-	mkdir ~/$fileType/$activity/$currentDate/
-	touch ~/$fileType/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/Videos/$activity/$currentDate/
+	touch ~/Videos/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	mkdir ~/$fileType/$activity/$currentDate/
+	mkdir -p ~/$fileType/$activity/$currentDate/
 	touch ~/$fileType/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
