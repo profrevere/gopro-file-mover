@@ -12,19 +12,21 @@ echo "Confirming that only $fileType's will be transfered."
 #Directory Creation
 if [ $fileType = Videos ]
 then
-	mkdir /home/brett/$fileType/$activity/$currentDate/
+	mkdir ~/$fileType/$activity/$currentDate/
+	touch ~/$fileType/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	mkdir /home/brett/$fileType/$activity/$currentDate/
+	mkdir ~/$fileType/$activity/$currentDate/
+	touch ~/$fileType/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 #Pre-defined variables
 SOURCEDIR=/media/brett/GoPro7/DCIM/*GOPRO/
 currentDate='date +”%d-%b-%Y”'
-VIDDESTDIR=/home/brett/$fileType/$activity/$currentDate/
-PICDESTDIR=/home/brett/$fileType/$activity/$currentDate/
+VIDDESTDIR=~/$fileType/$activity/$currentDate/
+PICDESTDIR=~/$fileType/$activity/$currentDate/
 
 
 #If/then statements for routing files
