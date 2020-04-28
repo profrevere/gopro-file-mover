@@ -12,32 +12,31 @@ echo "Confirming that only $fileType's will be transfered."
 #Directory Creation
 if [ $fileType = Videos ]
 then
-	mkdir -p ~/Videos/$activity/$currentDate/
-	touch ~/Videos/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/Videos/$activity/'date +”%F”'/
+	touch ~/Videos/$activity/'date +”%F”'/Rsync-Automation-Transfer-Log-$activity-'date +”%F”'.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	mkdir -p ~/$fileType/$activity/$currentDate/
-	touch ~/$fileType/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/$fileType/$activity/'date +”%F”'/
+	touch ~/$fileType/$activity/'date +”%F”'/Rsync-Automation-Transfer-Log-$activity-'date +”%F”'.txt
 fi
 
 #Pre-defined variables
 SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
-currentDate='date +”%F”'
-VIDDESTDIR=~/$fileType/$activity/$currentDate/
-PICDESTDIR=~/$fileType/$activity/$currentDate/
+VIDDESTDIR=~/$fileType/$activity/'date +”%F”'/
+PICDESTDIR=~/$fileType/$activity/'date +”%F”'/
 
 
 #If/then statements for routing files
 if [ $fileType = Videos ]
 then
-	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR | $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR | $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-'date +”%F”'.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	rsync -avhtP --exclude="*.MP4" --exclude="*.THM" $SOURCEDIR $PICDESTDIR | $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude="*.MP4" --exclude="*.THM" $SOURCEDIR $PICDESTDIR | $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-'date +”%F”'.txt
 fi
 
 #END
