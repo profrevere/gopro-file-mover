@@ -30,12 +30,12 @@ PICDESTDIR=~/$fileType/$activity/$currentDate/
 #If/then statements for routing files
 if [ $fileType = Videos ]
 then
-	rsync -avhtP --exclude="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR $VIDDESTDIR | tee $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR $VIDDESTDIR | tee $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	rsync -avhtP --exclude="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR $PICDESTDIR | tee $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR $PICDESTDIR | tee $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 #END
