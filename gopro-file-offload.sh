@@ -14,13 +14,11 @@ echo "Confirming that only $fileType's will be transfered."
 if [ $fileType = Videos ]
 then
 	mkdir -p ~/Videos/$activity/date +”%F”/
-	touch ~/Videos/$activity/date +”%F”/Rsync-Automation-Transfer-Log-$activity-$currentDate
 fi
 
 if [ $fileType = Pictures ]
 then
 	mkdir -p ~/$fileType/$activity/date +”%F”/
-	touch ~/$fileType/$activity/date +”%F”/Rsync-Automation-Transfer-Log-$activity-$currentDate
 fi
 
 #Pre-defined variables
@@ -32,12 +30,12 @@ PICDESTDIR=~/$fileType/$activity/$currentDate/
 #If/then statements for routing files
 if [ $fileType = Videos ]
 then
-	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR | $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude="*.JPG" --exclude="*.THM" $SOURCEDIR $VIDDESTDIR | tee Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = Pictures ]
 then
-	rsync -avhtP --exclude="*.MP4" --exclude="*.THM" $SOURCEDIR $PICDESTDIR | $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	rsync -avhtP --exclude="*.MP4" --exclude="*.THM" $SOURCEDIR $PICDESTDIR | tee Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 #END
