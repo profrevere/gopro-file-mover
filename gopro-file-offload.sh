@@ -11,12 +11,12 @@ read fileType
 echo "Confirming that only $fileType's will be transfered."
 
 #Directory Creation
-if [ $fileType = Videos ]
+if [ $fileType = "Videos" ]
 then
 	mkdir -p ~/Videos/$activity/$currentDate/
 fi
 
-if [ $fileType = Pictures ]
+if [ $fileType = "Pictures" ]
 then
 	mkdir -p ~/$fileType/$activity/$currentDate/
 fi
@@ -28,12 +28,12 @@ PICDESTDIR=~/$fileType/$activity/$currentDate/
 
 
 #If/then statements for routing files
-if [ $fileType = Videos ]
+if [ $fileType = "Videos" ]
 then
 	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR $VIDDESTDIR | tee $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
-if [ $fileType = Pictures ]
+if [ $fileType = "Pictures" ]
 then
 	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR $PICDESTDIR | tee $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
