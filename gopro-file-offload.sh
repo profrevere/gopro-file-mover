@@ -13,12 +13,12 @@ echo "Confirming that only $fileType's will be transfered."
 #Directory Creation
 if [ $fileType = Videos ]
 then
-	mkdir -p ~/Videos/$activity/date +”%F”/
+	mkdir -p ~/Videos/$activity/$currentDate/
 fi
 
 if [ $fileType = Pictures ]
 then
-	mkdir -p ~/$fileType/$activity/date +”%F”/
+	mkdir -p ~/$fileType/$activity/$currentDate/
 fi
 
 #Pre-defined variables
