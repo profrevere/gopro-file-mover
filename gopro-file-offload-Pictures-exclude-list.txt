@@ -1,2 +1,2 @@
-.MP4
-.THM
+/media/$USER/GoPro7/DCIM/*GOPRO/*.MP4
+/media/$USER/GoPro7/DCIM/*GOPRO/*.THM

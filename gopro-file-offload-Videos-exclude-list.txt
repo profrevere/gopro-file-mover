@@ -1,2 +1,2 @@
-.JPG
-.THM
+/media/$USER/GoPro7/DCIM/*GOPRO/*.JPG
+/media/$USER/GoPro7/DCIM/*GOPRO/*.THM
