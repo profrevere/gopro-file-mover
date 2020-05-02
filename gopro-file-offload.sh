@@ -12,20 +12,20 @@ echo "Confirming that only $fileType's will be transfered."
 
 #Pre-defined variables
 SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
-VIDDESTDIR=~/$fileType/$activity/$currentDate/
-PICDESTDIR=~/$fileType/$activity/$currentDate/
 
 #Directory Creation
 if [ $fileType = "Videos" ]
 then
 	mkdir -p ~/Videos/$activity/$currentDate/
-	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR $VIDDESTDIR | tee $VIDDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	cd ~/Videos/$activity/$currentDate/
+	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR ~/Videos/$activity/$currentDate/ | tee ~/Videos/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 if [ $fileType = "Pictures" ]
 then
-	mkdir -p ~/$fileType/$activity/$currentDate/
-	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR $PICDESTDIR | tee $PICDESTDIR/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/Pictures/$activity/$currentDate/
+	cd ~/Pictures/$activity/$currentDate/
+	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR ~/Pictures/$activity/$currentDate/ | tee ~/Pictures/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
 fi
 
 #END
