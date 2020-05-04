@@ -1,2 +1,0 @@
-/media/$USER/GoPro7/DCIM/*GOPRO/G*.JPG
-/media/$USER/GoPro7/DCIM/*GOPRO/G*.THM
