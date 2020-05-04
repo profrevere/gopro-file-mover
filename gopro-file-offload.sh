@@ -16,14 +16,14 @@ SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
 #Directory Creation
 if [ $fileType == "Videos" ]
 then
-	mkdir -p ~/Videos/$activity/$(date +%F)/
-	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR ~/Videos/$activity/$(date +%F)/ | tee ~/Videos/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
+	mkdir -p ~/$fileType/$activity/$(date +%F)/
+	rsync -avhtP --include='.MP4' --exclude='*' $SOURCEDIR ~/Videos/$activity/$(date +%F)/ | tee ~/Videos/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
 fi
 
 if [ $fileType == "Pictures" ]
 then
-	mkdir -p ~/Pictures/$activity/$(date +%F)/
-	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR ~/Pictures/$activity/$(date +%F)/ | tee ~/Pictures/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
+	mkdir -p ~/$fileType/$activity/$(date +%F)/
+	rsync -avhtP --include='.JPG' --exclude='*' $SOURCEDIR ~/Pictures/$activity/$(date +%F)/ | tee ~/Pictures/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
 fi
 
 #END
