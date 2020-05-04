@@ -17,13 +17,13 @@ SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
 if [ $fileType == "Videos" ]
 then
 	mkdir -p ~/$fileType/$activity/$(date +%F)/
-	rsync -avhtP --include='.MP4' --exclude='*' $SOURCEDIR ~/Videos/$activity/$(date +%F)/ | tee ~/Videos/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
+	rsync -avhtP --include='.MP4' --include='*/' --exclude='*' $SOURCEDIR ~/Videos/$activity/$(date +%F)/ | tee ~/Videos/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
 fi
 
 if [ $fileType == "Pictures" ]
 then
 	mkdir -p ~/$fileType/$activity/$(date +%F)/
-	rsync -avhtP --include='.JPG' --exclude='*' $SOURCEDIR ~/Pictures/$activity/$(date +%F)/ | tee ~/Pictures/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
+	rsync -avhtP --include='.JPG' --include='*/' --exclude='*' $SOURCEDIR ~/Pictures/$activity/$(date +%F)/ | tee ~/Pictures/$activity/$(date +%F)/Rsync-Automation-Transfer-Log-$activity-$(date +%F).txt
 fi
 
 #END
