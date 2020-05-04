@@ -1,6 +1,6 @@
 #!/bin/bash
-#Rsync Automation script for pulling new files off GoPro Hero 7 MicroSD card and into new folder by date.
-currentDate='date +”%F”'
+#Rsync Automation script for pulling new files off GoPro Hero 7 MicroSD card and into a new or existing folder by date.
+
 
 #User Input Prompts
 echo -e "What type of activities were recorded? (e.g. Yoga, Nightlapse)"
@@ -14,18 +14,18 @@ echo "Confirming that only $fileType's will be transfered."
 SOURCEDIR=/media/$USER/GoPro7/DCIM/*GOPRO/
 
 #Directory Creation
-if [ $fileType = "Videos" ]
+if [ $fileType == "Videos" ]
 then
-	mkdir -p ~/Videos/$activity/$currentDate/
-	cd ~/Videos/$activity/$currentDate/
-	rsync -avhtP --exclude-from="gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR ~/Videos/$activity/$currentDate/ | tee ~/Videos/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/Videos/$activity/$(date +”%F”)/
+	cd ~/Videos/$activity/$(date +”%F”)/
+	rsync -avhtP --exclude-from="~/Projects/private-automation/gopro-file-offload-Videos-exclude-list.txt" $SOURCEDIR ~/Videos/$activity/$(date +”%F”)/ | tee ~/Videos/$activity/$(date +”%F”)/Rsync-Automation-Transfer-Log-$activity-$(date +”%F”).txt
 fi
 
-if [ $fileType = "Pictures" ]
+if [ $fileType == "Pictures" ]
 then
-	mkdir -p ~/Pictures/$activity/$currentDate/
-	cd ~/Pictures/$activity/$currentDate/
-	rsync -avhtP --exclude-from="gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR ~/Pictures/$activity/$currentDate/ | tee ~/Pictures/$activity/$currentDate/Rsync-Automation-Transfer-Log-$activity-$currentDate.txt
+	mkdir -p ~/Pictures/$activity/$(date +”%F”)/
+	cd ~/Pictures/$activity/$(date +”%F”)/
+	rsync -avhtP --exclude-from="~/Projects/private-automation/gopro-file-offload-Pictures-exclude-list.txt" $SOURCEDIR ~/Pictures/$activity/$(date +”%F”)/ | tee ~/Pictures/$activity/$(date +”%F”)/Rsync-Automation-Transfer-Log-$activity-$(date +”%F”).txt
 fi
 
 #END
