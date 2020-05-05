@@ -6,8 +6,3 @@ To use on your machine edit $SOURCEDIR variable on line 15 to the path of your m
 Next Improvements:
 ----
 Update script to auto-detect new external memory cards/USBs and prompt for which one to pull files from
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6b5a407f7612887b170eaf20d5507af89c33e0e8
